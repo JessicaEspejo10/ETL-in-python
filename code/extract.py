@@ -3,6 +3,7 @@ import csv
 import tempfile
 from zipfile import ZipFile
 
+#install package if you don't have it
 import requests
 
 # Settings
