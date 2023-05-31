@@ -2,8 +2,8 @@ import os
 import csv
 from datetime import datetime
 
-from common.tables import PprRawAll
-from common.base import session
+from tables import PprRawAll
+from base import session
 from sqlalchemy import text
 
 # Settings
@@ -85,7 +85,7 @@ def transform_new_data():
                     date_of_sale=update_date_of_sale(row["date_of_sale"]),
                     address=transform_case(row["address"]),
                     postal_code=transform_case(row["postal_code"]),
-                    county=transform_case(row["county"]),
+                    country=transform_case(row["country"]),
                     price=update_price(row["price"]),
                     description=update_description(row["description"]),
                 )
