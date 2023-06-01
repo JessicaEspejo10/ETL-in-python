@@ -71,7 +71,7 @@ def save_new_raw_data():
                         "Date of Sale (dd/mm/yyyy)": "date_of_sale",
                         "Address": "address",
                         "Postal Code": "postal_code",
-                        "County": "country",
+                        "County": "county",
                         "Price (€)": "price",
                         "Description of Property": "description",
                     }

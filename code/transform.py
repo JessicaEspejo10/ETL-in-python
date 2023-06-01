@@ -85,7 +85,7 @@ def transform_new_data():
                     date_of_sale=update_date_of_sale(row["date_of_sale"]),
                     address=transform_case(row["address"]),
                     postal_code=transform_case(row["postal_code"]),
-                    country=transform_case(row["country"]),
+                    county=transform_case(row["county"]),
                     price=update_price(row["price"]),
                     description=update_description(row["description"]),
                 )
