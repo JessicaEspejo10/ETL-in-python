@@ -9,13 +9,8 @@ from sqlalchemy import text
 # Settings
 base_path = os.path.abspath(__file__ + "/../../")
 
-# START - Paths for new February 2021 data available
-
 # Raw path where we want to extract the new CSV data
 raw_path = f"{base_path}/data/raw/downloaded_at=2021-02-01/ppr-all.csv"
-
-# END - Paths for new February 2021 data available
-
 
 def transform_case(input_string):
     """
@@ -74,12 +69,11 @@ def transform_new_data():
     Apply all transformations for each row in the .csv file before saving it into database
     """
     with open(raw_path, mode="r", encoding="windows-1252") as csv_file:
-        # Read the new CSV snapshot ready to be processed
+        
         reader = csv.DictReader(csv_file)
-        # Initialize an empty list for our PprRawAll objects
+        
         ppr_raw_objects = []
         for row in reader:
-            # Apply transformations and save as PprRawAll object
             ppr_raw_objects.append(
                 PprRawAll(
                     date_of_sale=update_date_of_sale(row["date_of_sale"]),
@@ -90,7 +84,7 @@ def transform_new_data():
                     description=update_description(row["description"]),
                 )
             )
-        # Save all new processed objects and commit
+        
         session.bulk_save_objects(ppr_raw_objects)
         session.commit()
 
